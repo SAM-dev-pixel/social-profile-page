@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --white: rgb(255, 255, 255);
+  --dark: rgb(31, 22, 31);
+  --light-dark: rgb(43, 36, 43);
+  --dark-purple: rgb(133, 15, 141);
+  --heavy-purple: rgb(199, 56, 189);
+  --light-purple: rgb(239, 195, 255);
+
+  --fs-xxl: 1.75rem;
+  --fs-xl: 1.5rem;
+  --fs-l: 1rem;
+  --fs-s: 0.75rem;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+#navbar {
+  height: 2rem;
+  padding: 1.5rem 10%;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--light-purple);
+  z-index: 9;
+  overflow-x: clip;
+}
+#navbar::after {
+  content: "";
+  position: absolute;
+  left: -45%;
+  right: -45%;
+  top: 0;
+  height: clamp(27rem, 65vh, 27rem);
+  transform: translateY(-25%);
+  background-color: var(--light-purple);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.back-btn, .more-btn {
+  max-height: fit-content;
+}
+.back-btn img, .more-btn img {
+  width: 1.5rem;
+  height: auto; 
+}
+#profile-container {
+  z-index: 99;
+  position: relative;
+}
+.header-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1rem;
+}
+.img-profile {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: .25rem solid var(--dark-purple);
+}
+.img-profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.name-profile {
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  color: var(--dark-purple);
+  line-height: 1;
+}
+.title {
+  font-size: var(--fs-l);
+  color: var(--light-dark);
+  margin: .25em;
+}
+.follow-btn {
+  max-width: fit-content;
+  color: var(--white);
+  font-size: var(--fs-s);
+  font-weight: 500;
+  padding: .5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  background: linear-gradient(to right, var(--heavy-purple), var(--dark-purple));
+  border-radius: 1rem;
+}
+.follow-btn img {
+  width: 1rem;
+}
+.social-media-wrapper {
+  width: 75%;
+  margin: 2rem auto .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+}
+.social-media-wrapper img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.followers-wrapper {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.followers-wrapper > * {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.followers-wrapper strong {
+  font-size: var(--fs-xxl);
+  color: var(--dark);
+}
+.followers-wrapper small {
+  font-size: var(--fs-s);
+  color: var(--light-dark);
+}
+.gallery-profile {
+  margin-top: 3rem;
+}
+.gallery-bar {
+  width: 75%;
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 500;
+  color: var(--light-dark);
+}
+.gallery-bar .active {
+  color: var(--dark-purple);
+  font-weight: 600;
+  text-decoration: underline;
+}
+.gallery-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery-img {
+  width: 125px;
+  height: 125px;
+}
+.gallery-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery-modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  display: none;
+  inset: 0;
+  z-index: 999;
+}
+.gallery-modal.show {
+  display: flex;
+}
+.blur-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  background-color: rgb(255 255 255 / 30%);
+  backdrop-filter: blur(10px);
+}
+.gallery-modal img {
+  width: 100%;
+  height: auto;
+  margin: auto;
+  object-fit: contain;
+  z-index: 99;
+}
+.close-btn {
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  background: none;
+  outline: none;
+  border: none;
+}
+.close-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.close-btn:active {
+  background-color: var(--light-purple);
+}
+
+/*== RESPONSIVE ==*/
+@media (width >= 48rem) {
+
+  #profile-container {
+    display: flex;
+    gap: 2rem;
+  }
+  .header-profile {
+    flex: 2;
+  }
+  .social-media-wrapper {
+    flex-direction: column;
+    flex: 1;
+  }
+  .followers-wrapper {
+    flex-direction: column;
+    flex: 1;
+  }
+  
+  .gallery-wrapper {
+    flex: 2;
+  }
+
+}
